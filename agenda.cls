@@ -23,11 +23,12 @@
 \LoadClass[onesided]{report}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{agenda}[2014/01/08 CSWomen agenda class]
-\RequirePackage{titlesec}
 \RequirePackage{fullpage}
-\RequirePackage{xcolor}
 \RequirePackage[top=1in, bottom=1in, left=1.5in, right=1in,
   marginparwidth=1.5in]{geometry}
+\RequirePackage{titlesec}
+\RequirePackage{parskip}
+\RequirePackage{xcolor}
 \reversemarginpar
 \thispagestyle{empty}
 
