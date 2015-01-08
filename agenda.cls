@@ -31,6 +31,7 @@
 \RequirePackage{xcolor}
 \reversemarginpar
 \thispagestyle{empty}
+\pagestyle{empty}
 
 \def\groupvar {}
 \def\objectivevar {}
