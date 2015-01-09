@@ -24,8 +24,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{agenda}[2014/01/08 CSWomen agenda class]
 \RequirePackage{fullpage}
-\RequirePackage[top=1in, bottom=1in, left=1.5in, right=1in,
-  marginparwidth=1.5in]{geometry}
+\RequirePackage[top=1in, bottom=1in, left=1.5in, right=1in, marginparwidth=1.5in]{geometry}
 \RequirePackage{titlesec}
 \RequirePackage{parskip}
 \RequirePackage{xcolor}
@@ -36,7 +35,12 @@
 \def\groupvar {}
 \def\objectivevar {}
 \def\invitedvar {}
-\def \headerwidth {5in}
+\def\attendedvar {}
+\def\dateproposedvar {}
+\def\dateoccuredvar {}
+\def\scribevar {}
+\def\headerwidth {5in}
+\definecolor{light-gray}{gray}{0.95}
 
 \newcommand{\group}[1]{
   \def \groupvar { #1 }
@@ -51,18 +55,46 @@
   \def \invitedvar { #1 }
 }
 
+\newcommand{\attended}[1]{
+  \def \attendedvar { #1 }
+}
+
+\newcommand{\dateproposed}[1] {
+  \def \dateproposedvar { #1 } 
+}
+
+\newcommand{\dateoccured}[1]{
+  \def \dateoccuredvar { #1 } 
+}
+
+\newcommand{\scribe}[1]{
+  \def \scribevar { #1 }
+}
+
 \newcommand{\agendaheader}{
   % Getting margin notes to align correctly is annoying; separating
   % with a light grey line for now.
   \section*{\sc \groupvar Meeting Agenda} 
   \begin{table}[h]
     \begin{tabular}{l p{\headerwidth}}
-      {\sc Date:} & \today{} \\
+      {\sc Proposed Date:} & \proposeddate \\
       {\sc Objective:} & \objectivevar \\
       {\sc Invited:} & \invitedvar \\
       \hline
     \end{tabular}
   \end{table}
+}
+
+\newcommand{\minutesheader}{
+  \section*{\sc \groupvar Meeting Minutes} 
+  \begin{table}[h]
+    \begin{tabular}{l p{\headerwidth}}
+      {\sc Meeting Date:} & \dateoccuredvar \\
+      {\sc Attended:} & \attendedvar \\
+      {\sc Scribe:} & \scribevar \\
+      \hline
+    \end{tabular}
+  \end{table}  
 }
 
 
@@ -73,6 +105,16 @@
   \par
 }{\vspace{0.2in}}
 
+\newcommand{\minutesitem}[1]{
+  \vspace{0.1in}
+
+  \colorbox{light-gray}{
+    \begin{minipage}{\textwidth}
+    #1      
+    \end{minipage}
+  }
+}
+ 
 \newcommand{\actionitem}[1]{
   {\color{red}{\bf #1}}
 }
