@@ -77,7 +77,7 @@
   \section*{\sc \groupvar Meeting Agenda} 
   \begin{table}[h]
     \begin{tabular}{l p{\headerwidth}}
-      {\sc Proposed Date:} & \proposeddate \\
+      {\sc Proposed Date:} & \dateproposedvar \\
       {\sc Objective:} & \objectivevar \\
       {\sc Invited:} & \invitedvar \\
       \hline
